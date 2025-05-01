@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { useState } from "react";
+
 
 function App() {
+const[input, setInput] = useState("")
+const [tarefas, setTarefas] = useState([])
+
+  function clickRegister(event){
+    event.preventDefault()
+
+   setTarefas([...tarefas, input])
+   setInput("")
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form onSubmit={clickRegister}>
+        <h1>Cadastrando tarefa</h1>
+        <label>Nome da tarefa</label> <br></br>
+        <input placeholder="Digite uma tarefa"
+        value = {input}
+        onChange={(event) => setInput(event.target.value)}></input> <br></br>
+
+        <button type="submit">Registrar</button>
+      </form>
+      <br></br>
+      <br></br>
+      <ul>
+        {tarefas.map( tarefa =>{
+         return <li key={tarefa}>
+             {tarefa}
+          </li>
+        })}
+      </ul>
     </div>
   );
 }
