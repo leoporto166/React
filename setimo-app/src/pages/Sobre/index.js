@@ -7,7 +7,7 @@ function Sobre() {
         <h1>Bem vindo ao sobre</h1>
 
         <Link to={"/"}>Home</Link> <br />
-        <Link to={"/contado"} >Contato</Link>
+        <Link to={"/contato"} >Contato</Link>
       </div>
     );
   }
