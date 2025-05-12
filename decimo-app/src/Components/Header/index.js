@@ -4,7 +4,7 @@ import "./style.css"
 function Header(){
     return(
         <header>
-            <h1>Porto Flix</h1>
+            <Link to={"/"}><h1>Porto Flix</h1></Link>
 
             <div className="menu">
                 <Link to={"/"}>Home</Link>

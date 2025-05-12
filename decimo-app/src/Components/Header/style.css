@@ -16,6 +16,10 @@ header h1{
     margin: 10px;
 }
 
+header a{
+    text-decoration: none;
+}
+
 .menu a{
     color: white;
     margin: 10px;

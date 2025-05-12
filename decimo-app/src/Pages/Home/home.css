@@ -5,6 +5,13 @@
     margin: 14px auto;
 }
 
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+}
+
 .filmes article{
     width: 100%;
     background-color: #FFF;
@@ -29,7 +36,7 @@
     border-top-right-radius: 8px;
 }
 
-.container a{
+.home-link{
     display: flex;
     align-items: center;
     justify-content: center;

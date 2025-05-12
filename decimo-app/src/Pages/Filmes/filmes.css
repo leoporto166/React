@@ -1,8 +1,48 @@
 
 
-.description{
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
+button.filmes-button,
+a.filmes-button {
+  font: inherit;
+  line-height: normal;
+  text-align: center;
+  vertical-align: middle;
 }
+
+.filmes-description{
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+h3{
+    margin-top: 10px;
+}
+
+.filmes-title{
+    text-align: start;
+    margin-bottom: 5px;
+}
+
+
+
+.filmes-button{
+    display: inline-block;
+    background-color: rgb(197, 197, 197);
+    border: 0px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+.filmes-button:hover{
+    background-color: #116feb;
+    color: white;
+}
+
+
