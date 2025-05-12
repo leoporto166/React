@@ -37,7 +37,7 @@ function Home(){
 
                         <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title}className="poster" />
 
-                        <Link to={"/filmes/${filme.id"}>
+                        <Link to={`/filmes/${filme.id}`}>
                             Acessar
                         </Link>
                     </article>
