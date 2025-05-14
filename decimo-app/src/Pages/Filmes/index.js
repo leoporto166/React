@@ -20,7 +20,7 @@ function Filmes(){
     })
 
     .then((response) => {
-      setFilmes([response.data])
+      setFilmes(response.data)
       setLoading(false)
     }) 
     .catch(() =>{
@@ -38,6 +38,22 @@ function Filmes(){
   }
 }, [id, navigate]);
 
+  function salvarFilme(){
+    const minhaLista = localStorage.getItem("33portoFlix")
+
+    let filmesSalvos = JSON.parse(minhaLista) || [];
+
+    const hasFilme = filmesSalvos.some((filmesSalvo) => filmesSalvo.id === filmes.id)
+
+    if(hasFilme){
+      alert("Esse filme já esta na lista")
+      return
+    }
+    filmesSalvos.push(filmes)
+    localStorage.setItem("33portoFlix", JSON.stringify(filmesSalvos))
+    alert("Filme salvo com sucesso")
+  }
+
     if(loading){
       return(
         <div className="details">
@@ -48,31 +64,30 @@ function Filmes(){
     return(
         <div className="container">
             <div className="filmes">
-            {filmes.map((filme) => {
-                return(
+            
                     
-                    <article className="filmes-post" key={filme.id}>
-                        <h1 className="filmes-title">{filme.title}</h1>
+                    <article className="filmes-post" key={filmes.id}>
+                        <h1 className="filmes-title">{filmes.title}</h1>
 
-                        <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title}className="filmes-poster" />
+                        <img src={`https://image.tmdb.org/t/p/original/${filmes.backdrop_path}`} alt={filmes.title}className="filmes-poster" />
                         
                         <h3>Sinopse</h3>
-                        <p className="filmes-description">{filme.overview}</p>
+                        <p className="filmes-description">{filmes.overview}</p>
 
-                        <strong className="filmes-avaliation">Avaliação: {filme.vote_average} / 10</strong>
+                        <strong className="filmes-avaliation">Avaliação: {filmes.vote_average} / 10</strong>
 
                         <br></br>
                         <br></br>
 
-                        <button className="filmes-button">Salvar</button>
-                        <a className="filmes-button" href={`https://youtube.com/results?search_query=${filme.title}`} target="_blank" rel="external">Trailer</a>
+                        <button onClick={salvarFilme}  className="filmes-button">Salvar</button>
+                        <a className="filmes-button" href={`https://youtube.com/results?search_query=${filmes.title}`} target="blank" rel="external">Trailer</a>
 
                         
                     </article>
                 
-                )
+                
             
-            })}
+          
             </div>
         </div>
 

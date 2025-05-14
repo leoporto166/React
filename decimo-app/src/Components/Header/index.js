@@ -8,7 +8,7 @@ function Header(){
 
             <div className="menu">
                 <Link to={"/"}>Home</Link>
-                <Link to={"/contato"}>Contato</Link>
+                <Link to={"/favoritos"}>Favoritos</Link>
             </div>
         </header>
     )
