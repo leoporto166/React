@@ -32,7 +32,7 @@ function Home(){
     }, [])
     return(
         <div className="container">
-            <div className="filmes">
+            
             {filmes.map((filme) => {
                 return(
                     
@@ -49,7 +49,7 @@ function Home(){
                 )
             
             })}
-            </div>
+            
         </div>
     )
 }

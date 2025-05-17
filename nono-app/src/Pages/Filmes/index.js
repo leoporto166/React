@@ -1,5 +1,6 @@
 import { useEffect, useState} from "react";
 import { Link, useNavigate, useParams  } from "react-router-dom";
+import "./filmes.css"
 
 import Api from "../../Services/Api"
 
@@ -35,22 +36,44 @@ function Filmes(){
 
     loadFilme();
   }, [id, navigate]);
+
+  function savedFilmes(){
+    const myList = localStorage.getItem("33filmes");
+
+    let filmesSaveds = JSON.parse(myList) || [];
+
+     const filmeAtual = filmes[0];
+
+    const hasFilme = filmesSaveds.some((filme) => filme.id === filmeAtual.id)
+
+    if(hasFilme){
+      alert("Esse filme ja está salvo!")
+      return;
+    }
+
+    filmesSaveds.push(filmeAtual);
+
+    localStorage.setItem("33filmes", JSON.stringify(filmesSaveds))
+
+    alert("Filme salvo com sucesso!")
+    
+  }
     return(
         <div className="filmes-container">
             {filmes.map((filme) =>{
                 return(
-                    <article className="filmes-" key={filme.id}>
+                    <article className="filmes" key={filme.id}>
                         <h1 className="filmes-title">{filme.title}</h1>
 
-                        <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title}className="filme-poster" />
+                        <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title}className="filmes-poster" />
 
-                        <p className="filme-description">{filme.overview}</p>
+                        <p className="filmes-description">{filme.overview}</p>
 
-                        <p>Pontuação: {filme.vote_average} / 10</p>
+                        <p className="filmes-pontuation">Pontuação: {filme.vote_average} / 10</p>
 
-                        <button>Salvar</button>
+                        <button className="filmes-link" onClick={savedFilmes}>Salvar</button>
 
-                        <Link to={`https://www.youtube.com/results?search_query=${filme.title}`} target="blank" rel="external">Trailer</Link>
+                        <Link to={`https://www.youtube.com/results?search_query=${filme.title}`} target="blank" rel="external" className="filmes-link" >Trailer</Link>
                     </article>
                 )
             })}
