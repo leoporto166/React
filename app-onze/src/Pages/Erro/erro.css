@@ -1,0 +1,23 @@
+.erro-container{
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.erroh1{
+    font-size: 100px;
+    color: #0ac90a;
+}
+
+.erro-span{
+    font-size: 20px;
+}
+
+.erro-a{
+    text-decoration: none;
+    color: #023C02;
+    margin-top: 5px;
+}
